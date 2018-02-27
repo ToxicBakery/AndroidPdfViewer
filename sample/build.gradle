@@ -13,24 +13,26 @@ repositories {
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
-        minSdkVersion 11
-        targetSdkVersion 25
+        applicationId "com.github.barteksc.sample"
+        minSdkVersion 14
+        targetSdkVersion 27
         versionCode 3
         versionName "3.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
 }
 
 dependencies {
-    compile project(':android-pdf-viewer')
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    provided 'org.androidannotations:androidannotations:4.0.0'
-    compile 'org.androidannotations:androidannotations-api:4.0.0'
+    implementation project(':PdfiumAndroid')
+    implementation project(':android-pdf-viewer')
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    annotationProcessor 'org.androidannotations:androidannotations:4.3.1'
+    implementation 'org.androidannotations:androidannotations-api:4.3.1'
 }
